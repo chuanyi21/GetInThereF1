@@ -14,7 +14,7 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      squares: Array(9).fill(null)
+      squares: Array(9).fill(null),
       xIsNext: true,
     };
   }
@@ -24,7 +24,7 @@ class Board extends React.Component {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
       squares: squares,
       xIsNext: !this.state.xIsNext,
@@ -33,9 +33,9 @@ class Board extends React.Component {
 
   renderSquare(i) {
     return (
-      <Square 
+      <Square
         value={this.state.squares[i]}
-        onClick={()=> this.handleClick(i)}
+        onClick={() => this.handleClick(i)}
       />
     );
   }
@@ -43,11 +43,11 @@ class Board extends React.Component {
   render() {
     const winner = calculateWinner(this.state.squares);
     let status;
-    if(winner) {
+    if (winner) {
       status = "Winner " + winner;
-    }else{
-      status = "Next Player: " + (this.state.xIsNext ? 'X' : 'O');
-    } 
+    } else {
+      status = "Next Player: " + (this.state.xIsNext ? "X" : "O");
+    }
 
     return (
       <div>
